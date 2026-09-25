@@ -1,4 +1,4 @@
-base_url = "https://hickory-dns.org"
+base_url = "https://djc.github.io/hickory-web"
 title = "Hickory DNS"
 description = "A memory-safe DNS server and DNS libraries, written in Rust."
 default_language = "en"

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  {%- set page_title = section.title | default(value=config.title) %}
+  {%- set page_description = section.description | default(value=config.description) %}
+  <title>{% block title %}{{ page_title }}{% endblock title %}</title>
+  <meta name="description" content="{{ page_description }}">
+  <link rel="canonical" href="{{ current_url | safe }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_description }}">
+  <meta property="og:url" content="{{ current_url | safe }}">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="{{ get_url(path='favicon.png') }}">
+  <link rel="apple-touch-icon" href="{{ get_url(path='apple-touch-icon.png') }}">
+  <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="{{ get_url(path='/') }}" class="brand">
+        <picture>
+          <source srcset="{{ get_url(path='logo-dark.png') }}" media="(prefers-color-scheme: dark)">
+          <img src="{{ get_url(path='logo-light.png') }}" alt="Hickory DNS home" width="167" height="64">
+        </picture>
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          {% block nav %}{% endblock nav %}
+          <li><a href="{{ config.extra.repo }}">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {% block content %}{% endblock content %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Project">
+        <ul>
+          <li><a href="{{ config.extra.repo }}">Source code</a></li>
+          <li><a href="{{ config.extra.releases }}">Release notes</a></li>
+          <li><a href="https://docs.rs/hickory-resolver">API documentation</a></li>
+          <li><a href="{{ config.extra.discord }}">Discord</a></li>
+        </ul>
+      </nav>
+      <p>Hickory DNS is open source software, licensed under MIT or Apache 2.0. It was formerly known as Trust-DNS.</p>
+    </div>
+  </footer>
+</body>
+</html>

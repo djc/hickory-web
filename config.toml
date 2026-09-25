@@ -1,0 +1,18 @@
+base_url = "https://hickory-dns.org"
+title = "Hickory DNS"
+description = "A memory-safe DNS server and DNS libraries, written in Rust."
+default_language = "en"
+
+compile_sass = false
+minify_html = false
+build_search_index = false
+generate_feeds = false
+
+[markdown]
+smart_punctuation = true
+
+[extra]
+repo = "https://github.com/hickory-dns/hickory-dns"
+releases = "https://github.com/hickory-dns/hickory-dns/releases"
+discord = "https://discord.gg/89nxE4n"
+docker = "https://github.com/hickory-dns/docker"
